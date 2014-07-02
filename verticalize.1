@@ -4,13 +4,16 @@
 .SH NAME
 verticalize2graph \- Verticalize delimited files
 .SH SYNOPSIS
-verticalize (option) (file|stdin)
+verticalize (options) (file|stdin)
 .SH DESCRIPTION
-Verticalize delimited files
+Verticalize delimited text files
 .SH OPTIONS
 .TP
-.B \-\^d 
+.B \-\^n 
 first line is NOT header
+.TP
+.B \-\^d 
+(char) delimiter (default : tabulation)
 .SH SEE ALSO
 head(1), tail(1)
 .SH AUTHOR
