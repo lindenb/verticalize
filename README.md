@@ -1,9 +1,12 @@
-verticalize
+Verticalize
 ===========
 
 Simple tool to verticalize text delimited files.
 
 Author: Pierre Lindenbaum Phd @yokofakun
+
+![http://i.imgur.com/23kd0Il.jpg](http://i.imgur.com/23kd0Il.jpg)
+
 
 ## Compilation
 
