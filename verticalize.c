@@ -53,7 +53,7 @@ typedef struct LineAndTokens_t
 #define TokensSize(ptr) (1 + (ptr)-> tokens_len )
 #define TokensAt(ptr,index) (char*)(index == 0UL ? (ptr)-> line :  &((ptr)-> line[ (ptr)->tokens[ index -1 ] ]))
 
-#define PRINT_ROW(format) fprintf(out,"%s" format " %lu%s\n",(is_a_tty?ANSI_COLOR_CYAN:""),nLines,(is_a_tty?ANSI_COLOR_RESET:""))
+#define PRINT_ROW(format) fprintf(out,"%s" format " %zu%s\n",(is_a_tty?ANSI_COLOR_CYAN:""),nLines,(is_a_tty?ANSI_COLOR_RESET:""))
 #define START_ROW PRINT_ROW(">>>")
 #define END_ROW PRINT_ROW("<<<")
 
@@ -217,17 +217,17 @@ int main(int argc,char** argv)
 				}
 			sprintf(out_format,
 				ANSI_COLOR_MAGENTA
-				"$%%-03lu"
+				"$%%-03zu"
 				ANSI_COLOR_RESET
 				" "
 				ANSI_COLOR_GREEN
-				"%%0%lus"
+				"%%0%zus"
 				ANSI_COLOR_RESET
 				" : %%s\n",max_column_length);
 			}
 		else
 			{
-			sprintf(out_format,"$%%lu%c%%s%c%%s\n",delim,delim);
+			sprintf(out_format,"$%%zu%c%%s%c%%s\n",delim,delim);
 			}
 		
 		while((next=readLine(in,prev,delim))!=NULL)
@@ -280,14 +280,14 @@ int main(int argc,char** argv)
 					{
 					sprintf(out_format,
 						ANSI_COLOR_MAGENTA
-						"$%%-03lu"
+						"$%%-03zu"
 						ANSI_COLOR_RESET
 						" : %%s\n"
 						);
 					}
 				else
 					{
-					sprintf(out_format,"$%%lu%c%%s\n",delim);
+					sprintf(out_format,"$%%zu%c%%s\n",delim);
 					}
 				}
 			if(nLines>1) fputc('\n',out);
