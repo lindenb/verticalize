@@ -221,7 +221,7 @@ int main(int argc,char** argv)
 				ANSI_COLOR_RESET
 				" "
 				ANSI_COLOR_GREEN
-				"%%0%zus"
+				"%%%zus"
 				ANSI_COLOR_RESET
 				" : %%s\n",max_column_length);
 			}
