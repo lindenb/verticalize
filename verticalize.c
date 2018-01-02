@@ -125,7 +125,7 @@ static void usage(FILE* out)
 	fputs("Usage:\n\tverticalize (option) (file|stdin)\n",out);
 	fputs("Options:\n"
 		"\t-h help (this screen)\n",out);
-	fputs("\t-c first line is NOT header\n",out);
+	fputs("\t-n first line is NOT header\n",out);
 	fputs("\t-d (char) delimiter. Default is tabulation.\n",out);
 	fputs("\n",out);
 	}
