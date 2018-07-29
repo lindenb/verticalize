@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 
-Copyright (c) 2014 Pierre Lindenbaum
+Copyright (c) 2018 Pierre Lindenbaum
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -38,6 +38,8 @@ SOFTWARE.
 #define ANSI_COLOR_RESET ANSI_COLOR_BLACK
 
 #define OUT_OF_MEMORY do { fprintf(stderr,"%s: %d : OUT_OF_MEMORY.\n",__FILE__,__LINE__); exit(EXIT_FAILURE);} while(0)
+
+#define VERSION_NO  "1.0.1"
 
 typedef struct LineAndTokens_t
 	{
@@ -119,12 +121,13 @@ static LineAndTokensPtr readLine(FILE* in,LineAndTokensPtr ptr,int delim)
 /** print usage */
 static void usage(FILE* out)
 	{
-	fprintf(out,"Compilation:\n\t%s %s\n",__DATE__,__TIME__);
+	fprintf(out,"Version: " VERSION_NO  "\nCompilation:\n\t%s %s\n",__DATE__,__TIME__);
 	fputs("Author:\n\tPierre Lindenbaum PhD @yokofakun\n",out);
 	fputs("WWW:\n\thttps://github.com/lindenb/verticalize\n",out);
 	fputs("Usage:\n\tverticalize (option) (file|stdin)\n",out);
 	fputs("Options:\n"
-		"\t-h help (this screen)\n",out);
+		"\t-h help (this screen)\n"
+		"\t-v print version and exit\n",out);
 	fputs("\t-n first line is NOT header\n",out);
 	fputs("\t-d (char) delimiter. Default is tabulation.\n",out);
 	fputs("\n",out);
@@ -141,10 +144,11 @@ int main(int argc,char** argv)
 	size_t i;
 	char out_format[200];
 	
-	while ((c = getopt (argc, argv, "hnd:")) != -1)
+	while ((c = getopt (argc, argv, "vhnd:")) != -1)
 	 {
          switch (c)
            	{
+		case 'v': fputs(VERSION_NO "\n",stdout);return EXIT_SUCCESS;
            	case 'h': usage(stderr);return EXIT_SUCCESS;
            	case 'n': first_line_header=0;break;
            	case 'd':
@@ -314,4 +318,3 @@ int main(int argc,char** argv)
 
 	return EXIT_SUCCESS;
 	}
-
