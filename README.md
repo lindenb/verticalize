@@ -1,12 +1,21 @@
 Verticalize
 ===========
 
+[![Conda Badge](https://anaconda.org/conda-forge/verticalize/badges/version.svg)](https://anaconda.org/conda-forge/verticalize)
+
 Simple tool to verticalize text delimited files.
 
 Author: Pierre Lindenbaum Phd @yokofakun
 
 ![http://i.imgur.com/23kd0Il.jpg](http://i.imgur.com/23kd0Il.jpg)
 
+## Installation
+
+Verticalize can be installed with conda:
+
+```
+conda install conda-forge::verticalize
+```
 
 ## Compilation
 
